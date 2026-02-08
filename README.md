@@ -11,8 +11,8 @@
 This project compares traditional econometric models (GARCH) with modern Machine Learning approaches (Random Forest, XGBoost) for predicting CAC 40 volatility. Using 16 years of daily data (2010-2026), we evaluate forecasting performance at two operationally relevant horizons: J+1 (next-day) and J+5 (weekly).
 
 **Key Findings:**
-- **GARCH(1,1) remains highly competitive** with R² = 0.679 at J+5 horizon despite using only 2 parameters
-- **ML models provide modest improvements** (+10-20%) through multi-horizon feature engineering
+- **GARCH(1,1) remains highly competitive** with R² = 0.4597 at J+5 horizon despite using only 2 parameters
+- **ML models provide modest improvements**  through multi-horizon feature engineering
 - **Volatility persistence is high** (α+β = 0.965), explaining strong GARCH baseline performance
 - **J+5 horizon offers optimal balance** between operational relevance and statistical predictability
 
@@ -97,15 +97,15 @@ features['vol_21d'] = returns.rolling(21).std() * np.sqrt(252)
 - **Provider:** Yahoo Finance
 - **Period:** January 2010 - February 2026
 - **Frequency:** Daily closing prices
-- **Total observations:** 4,056 days
+- **Total observations:** 4,116 days
 
 ### Descriptive Statistics
 
 | Metric | Value |
 |--------|-------|
-| Mean daily return | 0.024% |
-| Daily volatility | 1.15% |
-| Annualized volatility | 18.3% |
+| Mean daily return | 0.025% |
+| Daily volatility | 1.22% |
+| Annualized volatility | 19.43% |
 | Minimum return | -12.8% (March 2020) |
 | Maximum return | +8.4% |
 | Skewness | -0.35 (left tail) |
@@ -222,11 +222,14 @@ All ML models use the same 6 features:
 
 ### Performance Summary
 
-| Horizon | Model | R² | RMSE | MAE | Improvement vs GARCH |
-|---------|-------|-----|------|-----|----------------------|
-| **J+5** | GARCH | 0.679 | 3.74% | 2.82% | - |
-| | Random Forest | 0.686 | 3.70% | 2.38% | **+1.0%** |
-| | XGBoost | 0.592 | 4.21% | 2.46% | -12.8% |
+| Horizon | Model | R² | RMSE | MAE | 
+|---------|-------|-----|------|-----|
+| **J+1** | GARCH | 0.6860 | 3.69% | 2.72% | 
+| | Random Forest | 0.9233 | 1.82% | 1.10% |
+| | XGBoost | 0.9298 | 1.74% | 1.07% |
+| **J+5** | GARCH | 0.4597 | 3.74% | 4.82% | 
+| | Random Forest | 0.6857 | 3.70% | 2.38% | 
+| | XGBoost | 0.5911 | 4.21% | 2.46% | 
 
 ---
 
@@ -234,26 +237,21 @@ All ML models use the same 6 features:
 
 #### 1. GARCH Remains Highly Competitive
 
-Despite using only 2 parameters (α, β), GARCH achieves R² = 0.679 at the J+5 horizon. This demonstrates that:
+Despite using only 2 parameters (α, β), GARCH achieves R² = 0.4597 at the J+5 horizon. This demonstrates that:
 - Volatility persistence is the dominant predictive signal
 - Parametric models can be extremely effective when well-specified
 - Simplicity has value: easier to interpret, faster to estimate, less prone to overfitting
 
-#### 2. ML Provides Modest but Consistent Improvements
+#### 2. ML Provides Significant Improvements
 
-Random Forest improves R² by ~10-20% across horizons through:
+Random Forest improves R² across horizons through:
 - **Multi-scale features:** Capturing volatility dynamics at 5d, 21d, and 63d horizons
 - **Non-linear interactions:** E.g., high short-term vol + negative skew → higher future vol
 - **Moment information:** Skewness and kurtosis add marginal predictive power
 
-However, the improvement is **modest**, suggesting that:
-- Linear persistence (GARCH) captures most of the predictable variation
-- Non-linearities in volatility dynamics are limited
-- Feature engineering matters more than model complexity
-
 #### 3. XGBoost Underperforms at J+5
 
-Surprisingly, XGBoost (R² = 0.592) performs worse than both GARCH and Random Forest. Potential explanations:
+Surprisingly, XGBoost (R² = 0.592) performs worse than Random Forest. Potential explanations:
 - **Overfitting:** Despite regularization, boosting may overfit to training noise
 - **Hyperparameter sensitivity:** Max depth = 5 may be suboptimal
 - **Small sample bias:** 252 test observations may favor simpler models (RF, GARCH)
@@ -287,7 +285,7 @@ The chart shows out-of-sample volatility forecasts for the test period (2025-202
 
 1. **GARCH(1,1) is a strong baseline** that should always be included in volatility forecasting comparisons. Its simplicity, interpretability, and performance make it hard to beat.
 
-2. **Machine Learning adds value but doesn't revolutionize** short-term volatility forecasting. Improvements are real but modest (10-20%), suggesting diminishing returns to model complexity.
+2. **Machine Learning adds value but doesn't revolutionize** short-term volatility forecasting. Improvements are real but modest, given the increased complexity of the ML models.
 
 3. **Feature engineering drives ML performance** more than model choice. Multi-horizon volatilities are crucial; Random Forest and XGBoost perform similarly when given the same features.
 
