@@ -224,14 +224,9 @@ All ML models use the same 6 features:
 
 | Horizon | Model | R² | RMSE | MAE | Improvement vs GARCH |
 |---------|-------|-----|------|-----|----------------------|
-| **J+1** | GARCH | 0.6XX | X.XX% | X.XX% | - |
-| | Random Forest | 0.XXX | X.XX% | X.XX% | +X.X% |
-| | XGBoost | 0.XXX | X.XX% | X.XX% | +X.X% |
 | **J+5** | GARCH | 0.679 | 3.74% | 2.82% | - |
 | | Random Forest | 0.686 | 3.70% | 2.38% | **+1.0%** |
 | | XGBoost | 0.592 | 4.21% | 2.46% | -12.8% |
-
-*Note: Fill in J+1 results from your actual output*
 
 ---
 
@@ -360,7 +355,7 @@ The chart shows out-of-sample volatility forecasts for the test period (2025-202
 5. **Bucci, A. (2020).** "Realized Volatility Forecasting with Neural Networks." *Journal of Financial Econometrics*, 18(3), 502-531.
 
 ### Practitioner Resources
- 
+- ** Claude 4.5** 
 - **Arch Python Documentation:** https://arch.readthedocs.io/
 - **XGBoost Documentation:** https://xgboost.readthedocs.io/
 - **Scikit-learn User Guide:** https://scikit-learn.org/stable/user_guide.html
