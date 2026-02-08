@@ -266,19 +266,7 @@ Comparing J+1 vs J+5 (to be completed with your results):
 - R² decreases as horizon increases → volatility becomes less predictable further out
 - This is expected: uncertainty accumulates over time
 - Trade-off: J+1 is more accurate but less operationally useful; J+5 balances both
-
-#### 5. Feature Importance Analysis
-
-Top predictors (XGBoost, J+5 horizon):
-1. **vol_21d** (XX%) - Confirms persistence is key
-2. **vol_5d** (XX%) - Short-term dynamics matter
-3. **abs_ret_21d** (XX%) - Alternative volatility measure adds value
-4. **vol_63d** (XX%) - Long-term trend component
-5. **skew_21d** (XX%) - Tail risk has predictive power
-6. **kurt_21d** (XX%) - Fat tails weakly predictive
-
-*Fill in actual importance values from your output*
-
+  
 ---
 
 ### Visualization: Time Series Forecast (J+5)
@@ -355,7 +343,7 @@ The chart shows out-of-sample volatility forecasts for the test period (2025-202
 5. **Bucci, A. (2020).** "Realized Volatility Forecasting with Neural Networks." *Journal of Financial Econometrics*, 18(3), 502-531.
 
 ### Practitioner Resources
-- ** Claude 4.5** 
+- **Claude 4.5** 
 - **Arch Python Documentation:** https://arch.readthedocs.io/
 - **XGBoost Documentation:** https://xgboost.readthedocs.io/
 - **Scikit-learn User Guide:** https://scikit-learn.org/stable/user_guide.html
@@ -367,6 +355,4 @@ This project is shared for educational and interview purposes. Feel free to adap
 
 ---
 
-
-**Last Updated:** February 7, 2026
 
