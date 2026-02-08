@@ -1,4 +1,4 @@
-# CAC 40 Volatility Forecasting: GARCH vs Machine Learning
+# CAC 40 Short-Term Volatility Forecasting: GARCH vs Machine Learning
 
 **Author:** Louison Robert  
 **Institution:** Université Paris-Saclay  
