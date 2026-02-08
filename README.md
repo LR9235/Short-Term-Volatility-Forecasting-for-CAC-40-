@@ -262,7 +262,7 @@ This highlights that **more complex ≠ better** in financial forecasting.
 
 #### 4. Performance Degrades with Horizon
 
-Comparing J+1 vs J+5 (to be completed with your results):
+Comparing J+1 vs J+5:
 - R² decreases as horizon increases → volatility becomes less predictable further out
 - This is expected: uncertainty accumulates over time
 - Trade-off: J+1 is more accurate but less operationally useful; J+5 balances both
