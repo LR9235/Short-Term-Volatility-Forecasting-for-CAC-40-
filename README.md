@@ -1,7 +1,7 @@
 # CAC 40 Volatility Forecasting: GARCH vs Machine Learning
 
 **Author:** Louison Robert  
-**Institution:** Université Paris-Saclay, Master 1 Finance  
+**Institution:** Université Paris-Saclay  
 **Date:** February 2026  
 
 ---
