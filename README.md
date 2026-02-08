@@ -251,7 +251,7 @@ Random Forest improves R² across horizons through:
 
 #### 3. XGBoost Underperforms at J+5
 
-Surprisingly, XGBoost (R² = 0.592) performs worse than Random Forest. Potential explanations:
+XGBoost (R² = 0.592) performs worse than Random Forest. Potential explanations:
 - **Overfitting:** Despite regularization, boosting may overfit to training noise
 - **Hyperparameter sensitivity:** Max depth = 5 may be suboptimal
 - **Small sample bias:** 252 test observations may favor simpler models (RF, GARCH)
